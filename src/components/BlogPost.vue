@@ -9,7 +9,7 @@
         <router-link class="link link-light" v-if="post.welcomeScreen" to="#">Login/Register
           <Arrow class="arrow arrow-light"/>
         </router-link>
-        <router-link class="link" v-else to="#">View Post
+        <router-link class="link" v-else to="#">View Portfolio
           <Arrow class="arrow"/>
         </router-link>
       </div>
@@ -37,7 +37,7 @@ export default {
 .blog-wrapper {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  //box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   @media (min-width: 700px) {
     min-height: 650px;
     max-height: 650px;
@@ -67,7 +67,7 @@ export default {
 
       h2 {
         font-size: 32px;
-        font-weight: 300;
+        font-weight: 400;
         text-transform: uppercase;
         margin-bottom: 24px;
         @media (min-width: 700px) {
@@ -77,18 +77,11 @@ export default {
 
       p {
         font-size: 15px;
-        font-weight: 300;
+        font-weight: 400;
         line-height: 1.7;
       }
 
-      .content-preview {
-        font-size: 14px;
-        max-height: 24px;
-        width: 250px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+
 
       .link {
         display: inline-flex;
@@ -115,7 +108,7 @@ export default {
   .blog-photo {
     order: 1;
     flex: 3;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    //box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     @media (min-width: 700px) {
       order: 2;
     }

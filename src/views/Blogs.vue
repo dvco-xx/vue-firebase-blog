@@ -18,9 +18,20 @@ export default {
   components: {BlogCard},
   computed: {
     sampleBlogCards() {
-      return this.$store.state.sampleBlogCards
+      return this.$store.state.sampleBlogCards;
+    },
+    editPost: {
+      get() {
+        return this.$store.state.editPost;
+      },
+      set(payload) {
+        this.$store.commit("toggleEditPost", payload);
+      },
     },
   },
+  beforeDestroy() {
+    this.$store.commit("toggleEditPost", false)
+  }
 };
 </script>
 
@@ -59,7 +70,7 @@ export default {
       border-radius: 20px;
       top: 0;
       left: 0;
-      background: darkred;
+      background: #303030;
       transform: scale(1.1);
       transition: 300ms ease all;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);

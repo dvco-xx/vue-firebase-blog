@@ -4,7 +4,7 @@
     <BlogPost :post="post" v-for="(post, index) in sampleBlogPost" :key="index"/>
     <div class="blog-card-wrap">
       <div class="container">
-        <h3>View More Recent Blogs</h3>
+        <h3>Recent Blog Posts</h3>
         <div class="blog-cards">
           <BlogCard :post="post" v-for="(post, index) in sampleBlogCards" :key="index"/>
         </div>
@@ -12,8 +12,10 @@
     </div>
     <div class="updates">
       <div class="container">
-        <h2>Never miss a post. Register for your free account today.</h2>
-        <router-link to="#" class="router-button">Register for Fireblogs <Arrow class="arrow arrow-light"/></router-link>
+        <h2>Sign up below to never miss a post!</h2>
+        <router-link :to="{name: 'Register'}" class="router-button">Sign Up
+          <Arrow class="arrow arrow-light"/>
+        </router-link>
       </div>
     </div>
   </div>
@@ -26,27 +28,23 @@ import BlogCard from "../components/BlogCard";
 
 export default {
   name: "Home",
-  components: { BlogCard, BlogPost, Arrow },
+  components: {BlogCard, BlogPost, Arrow},
   data() {
     return {
       welcomeScreen: {
-        title: "Welcome",
-        blogPost: "Weekly blog articles with all things programming including HTML, CSS, Javascript, Kotlin, Java and more. " +
-            "Register today to never miss a post",
+        title: "Welcome!",
+        blogPost: "I'm David, a Software Engineer from Nigeria. " +
+            "This site contains links to some of my personal work, as well as weekly programming-related blogposts for beginner developers.",
         welcomeScreen: true,
-        photo: "coding",
+        photo: "programmer-designer",
       },
       sampleBlogPost: [
         {
-          title: "This is a filler title!",
-          blogHTML: "This is a filler blog post title",
-          blogCoverPhoto: "beautiful-stories",
-        },
-        {
-          title: "This is a filler title!",
-          blogHTML: "This is a filler blog post title",
-          blogCoverPhoto: "designed-for-everyone",
-        },
+          title: "Portfolio",
+          blogHTML: "I love to create web spaces that combine simple, user-centered design with high performance and scalability. " +
+              "Follow the link below to view some of my other work.",
+          blogCoverPhoto: "code-design-illustration",
+        }
       ],
     };
   },
@@ -64,44 +62,49 @@ export default {
 .blog-card-wrap {
   h3 {
     font-weight: 300;
-    font-size: 28px;
-    margin-bottom: 32px;
+    font-size: 32px;
+    margin-bottom: 50px;
+    text-align: center;
+    text-transform: uppercase;
   }
 }
 
 .updates {
   .container {
     padding: 100px 25px;
-    display: flex;
-    flex-direction: column;
+    display: block;
     align-items: center;
     @media (min-width: 800px) {
       padding: 125px 25px;
       flex-direction: row;
     }
 
+    h2 {
+      font-weight: 300;
+      font-size: 32px;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      @media (min-width: 800px) {
+        font-size: 40px;
+      }
+    }
+
     .router-button {
       display: flex;
       font-size: 14px;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      margin: 30px auto;
+      padding: 20px;
+      width: 200px;
       text-decoration: none;
       @media(min-width: 800px) {
         margin-left: auto;
       }
     }
-
-    h2 {
-      font-weight: 300;
-      font-size: 32px;
-      max-width: 425px;
-      width: 100%;
-      text-align: center;
-      text-transform: uppercase;
-      @media (min-width: 800px) {
-        text-align: initial;
-        font-size: 40px;
-      }
-    }
   }
 }
-
 </style>

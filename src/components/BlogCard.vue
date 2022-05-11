@@ -1,6 +1,6 @@
 <template>
   <div class="blog-card">
-    <div class="icons">
+    <div v-show="editPost" class="icons">
       <div class="icon">
         <Edit class="edit"/>
       </div>
@@ -12,7 +12,7 @@
     <div class="info">
       <h4>{{ post.blogTitle }}</h4>
       <h6>Posted on: {{ post.blogDate }}</h6>
-      <router-link class="link" to="#">View the post
+      <router-link class="link" to="#">View post
         <Arrow class="arrow"/>
       </router-link>
     </div>
@@ -30,6 +30,11 @@ export default {
   components: {
     Arrow, Edit, Delete
   },
+  computed: {
+    editPost() {
+      return this.$store.state.editPost
+    }
+  }
 };
 </script>
 
@@ -41,7 +46,7 @@ export default {
   display: flex;
   flex-direction: column;
   border-radius: 8px;
-  background-color: #ffffff;
+  background-color: #fff;
   min-height: 420px;
   transition: .5s ease all;
 
@@ -112,7 +117,7 @@ export default {
     }
 
     h6 {
-      font-weight: 400;
+      font-weight: 300;
       font-size: 12px;
       padding-bottom: 6px;
     }
